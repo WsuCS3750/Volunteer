@@ -18,9 +18,9 @@ import us.wasatchsystems.ccs.models.Volunteer;
 public class VolunteerController {
 
 
-    @RequestMapping(value = "/volunteer", method = RequestMethod.GET)
+    @RequestMapping(value = "/signup", method = RequestMethod.GET)
     public ModelAndView volunteer() {
-        return new ModelAndView("volunteer", "command", new Volunteer());
+        return new ModelAndView("signup", "command", new Volunteer());
     }
 
 
