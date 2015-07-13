@@ -11,6 +11,12 @@
         <spring.version>4.1.1.RELEASE</spring.version>
     </properties>
 
+
+
+    <modules>
+
+    </modules>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
