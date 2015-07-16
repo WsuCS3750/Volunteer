@@ -8,26 +8,27 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title></title>
+  <title>Prototype Results</title>
 </head>
 <body>
 
 
-<h2>Submitted Student Information</h2>
+<h2>Thank you for submitting your information.</h2>
+
 <table>
 
 
   <!-- use for each loop here when hooked up to the database -->
   <tr>
-    <td>Name</td>
+    <td>Name:  </td>
     <td>${firstName}</td>
   </tr>
   <tr>
-    <td>Age</td>
+    <td>Age:  </td>
     <td>${lastName}</td>
   </tr>
   <tr>
-    <td>ID</td>
+    <td>DoB:  </td>
     <td>${dob}</td>
   </tr>
 </table>
