@@ -114,6 +114,7 @@ nbdist/
 nbactions.xml
 nb-configuration.xml
 .nb-gradle/
+lib/sqlserver_jdbc/*
 
 
 
