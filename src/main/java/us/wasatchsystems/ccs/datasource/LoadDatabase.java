@@ -32,7 +32,6 @@ public class LoadDatabase {
             return connection;
         }
 
-
         //Load the properties
         PropertyLoader propertyLoader = new PropertyLoader();
 
@@ -64,12 +63,12 @@ public class LoadDatabase {
             con = ds.getConnection();
 
 
-            System.out.println("You successfully connected to the database");
+            log.info("You successfully connected to the database");
             return con;
 
         } catch (Exception ex1) {
             ex1.printStackTrace();
-            System.out.println("An error occurred in connecting to the database");
+            log.error("An error occurred in connecting to the database");
 
             return null;
         }
@@ -77,17 +76,13 @@ public class LoadDatabase {
     }
 
 
-    public LoadDatabase(boolean isJdts) {
 
-
-    }
 
 
     public static void testDriver() throws Exception {
 //        Driver d = (Driver)Class.forName("com.microsoft.jdbc.sqlserver.SQLServerDriver").newInstance();
         DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
-
-        System.out.println("Successfully loaded the driver.");
+        log.info("Successfully loaded the driver.");
     }
 
 

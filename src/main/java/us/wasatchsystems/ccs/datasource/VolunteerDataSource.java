@@ -1,5 +1,7 @@
 package us.wasatchsystems.ccs.datasource;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import us.wasatchsystems.ccs.models.Volunteer;
 
 import java.sql.*;
@@ -11,6 +13,8 @@ import java.util.List;
  */
 public class VolunteerDataSource {
 
+    private static final Logger log = LogManager.getLogger(VolunteerDataSource.class);
+
     //jdbc:sqlserver://[serverName[\instanceName][:portNumber]][;property=value[;property=value]]
 
     Connection connection;
@@ -19,10 +23,11 @@ public class VolunteerDataSource {
 
         try {
             connection = LoadDatabase.getConnection();
+            log.info("Successfully loaded the connection");
 
         } catch (SQLException sqle) {
             sqle.printStackTrace();
-
+            log.error("Error initializing the database connection");
         }
 
     }
@@ -49,9 +54,9 @@ public class VolunteerDataSource {
                 String lastName = rs.getString("VolunteerLastName");
                 Date dob = rs.getDate("VolunteerDoB");
 
-                System.out.println("FirstName: " + firstName);
-                System.out.println("LastName: " + lastName);
-                System.out.println("Volunteer DOB: " + dob.toString());
+                log.info("FirstName: " + firstName);
+                log.info("LastName: " + lastName);
+                log.info("Volunteer DOB: " + dob.toString());
 
                 volunteers.add(new Volunteer(firstName, lastName, dob.toString()));
 
@@ -60,7 +65,7 @@ public class VolunteerDataSource {
 
         } catch (SQLException sqle) {
             sqle.printStackTrace();
-            System.out.println("Unable to query");
+            log.info("Unable to query");
             return new ArrayList<Volunteer>();
 
         }
@@ -83,34 +88,41 @@ public class VolunteerDataSource {
      */
 
 
-    public void addVolunteer(Volunteer volunteer) throws SQLException {
-        if(connection == null) {
-            return;
+    public void addVolunteer(Volunteer volunteer) {
+
+        try {
+
+
+            if (connection == null) {
+                return;
+            }
+
+            CallableStatement cstmt = null;
+
+
+            String query = "INSERT INTO dbo.Volunteer (VolunteerFirstName, VolunteerLastName, VolunteerDoB)values('" +
+                    volunteer.getFirstName() + "', '" + volunteer.getLastName() + "', '" + volunteer.getDob() +
+                    "');";
+
+            cstmt = connection.prepareCall(query);
+
+
+            if (cstmt.execute()) {
+                log.info("Inserted into database");
+            } else {
+                log.error("Error inserting into the database");
+            }
+
+
+            //        cstmt = connection.prepareCall();
+
+            // Get the result set
+            //        ResultSet rs = null;
+
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+            log.error("Error inserting into the database");
         }
-
-        CallableStatement cstmt = null;
-
-
-        String query = "INSERT INTO dbo.Volunteer (VolunteerFirstName, VolunteerLastName, VolunteerDoB)values(" +
-                volunteer.getFirstName() + ", " + volunteer.getLastName() + ", " +
-                ");";
-
-        cstmt = connection.prepareCall(query);
-
-        if(cstmt.execute()) {
-            System.out.println("Inserted into database");
-        }
-
-
-
-
-
-//        cstmt = connection.prepareCall();
-
-        // Get the result set
-//        ResultSet rs = null;
-
-
 
 
 
@@ -122,6 +134,10 @@ public class VolunteerDataSource {
 
 
     public static void main(String[] args) {
-        new VolunteerDataSource().queryAll();
+        VolunteerDataSource volunteerDataSource = new VolunteerDataSource();
+        Volunteer volunteer = new Volunteer("Shane", "Abel", "3/3/3");
+        volunteerDataSource.addVolunteer(volunteer);
+
+
     }
 }

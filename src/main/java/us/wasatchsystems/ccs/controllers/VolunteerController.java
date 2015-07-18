@@ -32,7 +32,7 @@ public class VolunteerController {
 
         model.addAttribute("firstName", volunteer.getFirstName());
         model.addAttribute("lastName", volunteer.getLastName());
-        model.addAttribute("dob", volunteer.getDob().toString());
+        model.addAttribute("dob", volunteer.getDob());
 
 
 

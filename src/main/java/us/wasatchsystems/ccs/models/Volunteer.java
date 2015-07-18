@@ -1,6 +1,8 @@
 package us.wasatchsystems.ccs.models;
 
-import java.util.Date;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 /**
  * Created by Jake on 7/12/2015.
@@ -11,9 +13,13 @@ import java.util.Date;
 
 public class Volunteer {
 
+    private final DateFormat iso8601Format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'");
+
     private String firstName;
     private String lastName;
     private String dob;
+
+
 
 
     public Volunteer() {
