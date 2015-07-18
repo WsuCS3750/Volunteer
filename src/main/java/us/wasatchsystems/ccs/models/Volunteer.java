@@ -13,13 +13,13 @@ public class Volunteer {
 
     private String firstName;
     private String lastName;
-    private Date dob;
+    private String dob;
 
 
     public Volunteer() {
     }
 
-    public Volunteer(String firstName, String lastName, Date dob) {
+    public Volunteer(String firstName, String lastName, String dob) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dob = dob;
@@ -42,11 +42,11 @@ public class Volunteer {
         this.lastName = lastName;
     }
 
-    public Date getDob() {
-        return (Date)dob.clone();
+    public String getDob() {
+        return dob;
     }
 
-    public void setDob(Date dob) {
+    public void setDob(String dob) {
         this.dob = dob;
     }
 

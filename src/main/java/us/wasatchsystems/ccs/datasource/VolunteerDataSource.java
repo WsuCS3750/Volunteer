@@ -28,8 +28,10 @@ public class VolunteerDataSource {
     }
 
 
-    public void queryAll() {
+    public List<Volunteer> queryAll() {
+
         try {
+
             List<Volunteer> volunteers = new ArrayList<Volunteer>();
 
             // Setup the query
@@ -39,8 +41,7 @@ public class VolunteerDataSource {
             cstmt = connection.prepareCall(SQL);
 
             // Get the result set
-            ResultSet rs = null;
-            rs = cstmt.executeQuery();
+            ResultSet rs = cstmt.executeQuery();
 
             // Get the data from the result set
             while (rs.next()) {
@@ -52,13 +53,68 @@ public class VolunteerDataSource {
                 System.out.println("LastName: " + lastName);
                 System.out.println("Volunteer DOB: " + dob.toString());
 
-                volunteers.add(new Volunteer(firstName, lastName, dob));
+                volunteers.add(new Volunteer(firstName, lastName, dob.toString()));
+
             }
+            return volunteers;
 
         } catch (SQLException sqle) {
             sqle.printStackTrace();
             System.out.println("Unable to query");
+            return new ArrayList<Volunteer>();
+
         }
+
+
+        // CLOSE THE CONNECTION!!!
+
+
+    }
+
+
+    /**
+     VolunteerID			smallint		NOT NULL	IDENTITY(1, 1),
+     VolunteerFirstName	varchar(25)		NOT NULL,
+     VolunteerLastName	varchar(30)		NOT NULL,
+     VolunteerDoB		smalldatetime	NOT NULL
+
+
+     * @param volunteer to insert
+     */
+
+
+    public void addVolunteer(Volunteer volunteer) throws SQLException {
+        if(connection == null) {
+            return;
+        }
+
+        CallableStatement cstmt = null;
+
+
+        String query = "INSERT INTO dbo.Volunteer (VolunteerFirstName, VolunteerLastName, VolunteerDoB)values(" +
+                volunteer.getFirstName() + ", " + volunteer.getLastName() + ", " +
+                ");";
+
+        cstmt = connection.prepareCall(query);
+
+        if(cstmt.execute()) {
+            System.out.println("Inserted into database");
+        }
+
+
+
+
+
+//        cstmt = connection.prepareCall();
+
+        // Get the result set
+//        ResultSet rs = null;
+
+
+
+
+
+
 
 
 

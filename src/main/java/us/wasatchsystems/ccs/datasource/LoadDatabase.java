@@ -1,12 +1,14 @@
 package us.wasatchsystems.ccs.datasource;
 
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 
 
 import java.sql.*;
-
 
 
 /**
@@ -18,6 +20,7 @@ import java.sql.*;
 
 public class LoadDatabase {
 
+    private static Logger log = LogManager.getLogger(LoadDatabase.class);
 
     public static Connection connection = null;
 
@@ -87,9 +90,20 @@ public class LoadDatabase {
         System.out.println("Successfully loaded the driver.");
     }
 
+
+
+    public static void testLogger() {
+        log.info("Calling test logger");
+
+    }
+
+
+
+
     public static void main(String[] args) throws Exception {
 
 
+        LoadDatabase.testLogger();
 
 
     }

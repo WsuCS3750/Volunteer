@@ -4,7 +4,7 @@
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </Console>
-        <RollingFile name="Volunteer DB" fileName="../logs/application-emailfaq.log"
+        <RollingFile name="Volunteer DB" fileName="../logs/application-volunteer.log"
                      filePattern="../logs/application-emailfaq-%d{MM-dd-yyyy}-%i.log">
             <PatternLayout>
                 <pattern>%d{HH:mm:ss.SSS} [%t] %X{id} %X{username} %-5level %c{36} %l: %msg%n</pattern>
