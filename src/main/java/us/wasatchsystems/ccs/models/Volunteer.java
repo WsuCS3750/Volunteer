@@ -1,5 +1,7 @@
 package us.wasatchsystems.ccs.models;
 
+import java.util.Date;
+
 /**
  * Created by Jake on 7/12/2015.
  *
@@ -11,13 +13,13 @@ public class Volunteer {
 
     private String firstName;
     private String lastName;
-    private String dob;
+    private Date dob;
 
 
     public Volunteer() {
     }
 
-    public Volunteer(String firstName, String lastName, String dob) {
+    public Volunteer(String firstName, String lastName, Date dob) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dob = dob;
@@ -40,11 +42,11 @@ public class Volunteer {
         this.lastName = lastName;
     }
 
-    public String getDob() {
-        return dob;
+    public Date getDob() {
+        return (Date)dob.clone();
     }
 
-    public void setDob(String dob) {
+    public void setDob(Date dob) {
         this.dob = dob;
     }
 
