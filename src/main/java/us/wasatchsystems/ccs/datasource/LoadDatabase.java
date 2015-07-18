@@ -1,10 +1,12 @@
 package us.wasatchsystems.ccs.datasource;
 
+import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+
 import java.sql.*;
-import com.microsoft.sqlserver.jdbc.*;
+
 
 
 /**
@@ -16,21 +18,29 @@ import com.microsoft.sqlserver.jdbc.*;
 
 public class LoadDatabase {
 
-    public LoadDatabase() {
 
+    public static Connection connection = null;
+
+
+
+    public static Connection getConnection() throws SQLException {
+
+        if(connection != null) {
+            return connection;
+        }
+
+
+        //Load the properties
         PropertyLoader propertyLoader = new PropertyLoader();
 
-        try {
-            DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
-
-        } catch (Exception ex1) {
-            ex1.printStackTrace();
-        }
+        // Initialize the driver
+        DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
 
         Connection con = null;
         CallableStatement cstmt = null;
         ResultSet rs = null;
 
+        //jdbc:sqlserver://localhost:1433;databaseName=CCS_PROTOTYPE
         try {
             // Establish the connection.
             SQLServerDataSource ds = new SQLServerDataSource();
@@ -52,14 +62,22 @@ public class LoadDatabase {
 
 
             System.out.println("You successfully connected to the database");
+            return con;
 
         } catch (Exception ex1) {
             ex1.printStackTrace();
             System.out.println("An error occurred in connecting to the database");
+
+            return null;
         }
 
     }
 
+
+    public LoadDatabase(boolean isJdts) {
+
+
+    }
 
 
     public static void testDriver() throws Exception {
@@ -72,11 +90,6 @@ public class LoadDatabase {
     public static void main(String[] args) throws Exception {
 
 
-        // Tests the driver
-//        LoadDatabase.testDriver();
-
-        // Test the
-        LoadDatabase.testDriver();
 
 
     }
