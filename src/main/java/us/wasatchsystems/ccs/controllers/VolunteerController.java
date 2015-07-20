@@ -1,11 +1,14 @@
 package us.wasatchsystems.ccs.controllers;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import us.wasatchsystems.ccs.datasource.VolunteerDataSource;
 import us.wasatchsystems.ccs.models.Volunteer;
 
 /**
@@ -16,6 +19,8 @@ import us.wasatchsystems.ccs.models.Volunteer;
 @Controller
 @RequestMapping("/")
 public class VolunteerController {
+
+    private static final Logger log = LogManager.getLogger(VolunteerController.class);
 
 
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
@@ -35,7 +40,10 @@ public class VolunteerController {
         model.addAttribute("dob", volunteer.getDob());
 
 
+        VolunteerDataSource.addVolunteer(volunteer);
 
+
+        log.info("Successfully inserted into the database");
 
 
 

@@ -13,7 +13,9 @@ import java.util.List;
 
 /**
  * Created by Jake on 7/16/2015.
+ *
  */
+
 public class VolunteerDataSource {
 
     private static final Logger log = LogManager.getLogger(VolunteerDataSource.class);
@@ -70,8 +72,9 @@ public class VolunteerDataSource {
         } catch (SQLException sqle) {
             sqle.printStackTrace();
             log.info("Unable to query");
-            return new ArrayList<Volunteer>();
 
+
+            return new ArrayList<Volunteer>();
         }
 
 
@@ -98,6 +101,7 @@ public class VolunteerDataSource {
 
             Connection connection = LoadDatabase.getConnection();
 
+
             if (connection == null) {
                 return;
             }
@@ -110,12 +114,17 @@ public class VolunteerDataSource {
 
             cstmt = connection.prepareCall(query);
 
-            if(cstmt.execute()) {
-                log.info("Successfully inserted into the database");
-            }
-            else {
-                log.info("Unsuccessfully inserted into the database");
-            }
+            cstmt.execute();
+
+            connection.commit();
+
+            log.info("Inserted ok");
+//            if(cstmt.execute()) {
+//                log.info("Successfully inserted into the database");
+//            }
+//            else {
+//                log.info("Unsuccessfully inserted into the database");
+//            }
 
         } catch (SQLException sqle) {
             sqle.printStackTrace();
@@ -126,10 +135,10 @@ public class VolunteerDataSource {
 
 
     public static void main(String[] args) {
-        VolunteerDataSource volunteerDataSource = new VolunteerDataSource();
-        Volunteer volunteer = new Volunteer("Brian", "Abel", "3/3/3");
+//        VolunteerDataSource volunteerDataSource = new VolunteerDataSource();
+        Volunteer volunteer = new Volunteer("Shane", "Abel", "3/3/3");
         VolunteerDataSource.addVolunteer(volunteer);
-        for(Volunteer v : volunteerDataSource.queryAll()) {
+        for(Volunteer v : VolunteerDataSource.queryAll()) {
             System.out.println(v.toString());
         }
 
