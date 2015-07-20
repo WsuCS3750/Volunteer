@@ -36,9 +36,10 @@ public class VolunteerDataSource {
     }
 
 
-    public List<Volunteer> queryAll() {
+    public static List<Volunteer> queryAll() {
 
         try {
+            Connection connection = LoadDatabase.getConnection();
 
             List<Volunteer> volunteers = new ArrayList<Volunteer>();
 
@@ -91,9 +92,11 @@ public class VolunteerDataSource {
      */
 
 
-    public void addVolunteer(Volunteer volunteer) {
+    public static void addVolunteer(Volunteer volunteer) {
 
         try {
+
+            Connection connection = LoadDatabase.getConnection();
 
             if (connection == null) {
                 return;
@@ -125,7 +128,7 @@ public class VolunteerDataSource {
     public static void main(String[] args) {
         VolunteerDataSource volunteerDataSource = new VolunteerDataSource();
         Volunteer volunteer = new Volunteer("Brian", "Abel", "3/3/3");
-        volunteerDataSource.addVolunteer(volunteer);
+        VolunteerDataSource.addVolunteer(volunteer);
         for(Volunteer v : volunteerDataSource.queryAll()) {
             System.out.println(v.toString());
         }
