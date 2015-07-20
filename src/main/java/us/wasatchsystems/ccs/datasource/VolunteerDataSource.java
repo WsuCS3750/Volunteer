@@ -1,10 +1,13 @@
 package us.wasatchsystems.ccs.datasource;
 
+import com.mysql.jdbc.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import us.wasatchsystems.ccs.models.Volunteer;
 
 import java.sql.*;
+import java.sql.CallableStatement;
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -92,52 +95,40 @@ public class VolunteerDataSource {
 
         try {
 
-
             if (connection == null) {
                 return;
             }
 
-            CallableStatement cstmt = null;
+            CallableStatement cstmt;
+            System.out.println("Attempting to insert: " + volunteer.toString());
 
-
-            String query = "INSERT INTO dbo.Volunteer (VolunteerFirstName, VolunteerLastName, VolunteerDoB)values('" +
-                    volunteer.getFirstName() + "', '" + volunteer.getLastName() + "', '" + volunteer.getDob() +
-                    "');";
+            String query = "INSERT INTO dbo.VOLUNTEER (VolunteerFirstName, VolunteerLastName, VolunteerDoB)values('" +
+                    volunteer.getFirstName() + "', '" + volunteer.getLastName() + "', sysdatetime());";
 
             cstmt = connection.prepareCall(query);
 
-
-            if (cstmt.execute()) {
-                log.info("Inserted into database");
-            } else {
-                log.error("Error inserting into the database");
+            if(cstmt.execute()) {
+                log.info("Successfully inserted into the database");
             }
-
-
-            //        cstmt = connection.prepareCall();
-
-            // Get the result set
-            //        ResultSet rs = null;
+            else {
+                log.info("Unsuccessfully inserted into the database");
+            }
 
         } catch (SQLException sqle) {
             sqle.printStackTrace();
             log.error("Error inserting into the database");
         }
 
-
-
-
-
-
-
     }
 
 
     public static void main(String[] args) {
         VolunteerDataSource volunteerDataSource = new VolunteerDataSource();
-        Volunteer volunteer = new Volunteer("Shane", "Abel", "3/3/3");
+        Volunteer volunteer = new Volunteer("Brian", "Abel", "3/3/3");
         volunteerDataSource.addVolunteer(volunteer);
-
+        for(Volunteer v : volunteerDataSource.queryAll()) {
+            System.out.println(v.toString());
+        }
 
     }
 }

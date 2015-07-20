@@ -57,6 +57,12 @@ public class Volunteer {
     }
 
 
-
-
+    @Override
+    public String toString() {
+        return "Volunteer{" +
+                "dob='" + dob + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                '}';
+    }
 }
