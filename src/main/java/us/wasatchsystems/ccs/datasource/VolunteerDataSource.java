@@ -109,8 +109,15 @@ public class VolunteerDataSource {
             CallableStatement cstmt;
             System.out.println("Attempting to insert: " + volunteer.toString());
 
+            String realDoB = volunteer.getDob().replace("/", "");
+
+            char[] realDobArray = realDoB.toCharArray();
+
+            String finalDoB = "'" + realDobArray[0] + realDobArray[1] + "/" + realDobArray[2] + realDobArray[3] + "/" + realDobArray[4] + realDobArray[5] + realDobArray[6] + realDobArray[7] + "'";
+
             String query = "INSERT INTO dbo.VOLUNTEER (VolunteerFirstName, VolunteerLastName, VolunteerDoB)values('" +
-                    volunteer.getFirstName() + "', '" + volunteer.getLastName() + "', sysdatetime());";
+                    //volunteer.getFirstName() + "', '" + volunteer.getLastName() + "', sysdatetime());";
+                    volunteer.getFirstName() + "', '" + volunteer.getLastName() + "', " + finalDoB + ");";
 
             cstmt = connection.prepareCall(query);
 

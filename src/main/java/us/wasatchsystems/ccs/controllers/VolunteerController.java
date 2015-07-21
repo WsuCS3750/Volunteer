@@ -43,7 +43,7 @@ public class VolunteerController {
         VolunteerDataSource.addVolunteer(volunteer);
 
 
-        log.info("Successfully inserted into the database");
+        //log.info("Successfully inserted into the database");
 
 
 

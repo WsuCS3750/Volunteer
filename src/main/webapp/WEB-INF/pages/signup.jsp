@@ -80,7 +80,8 @@
   }
   function validateDoB()
   {
-    var datepattern = /^\d{1,2}\/\d{1,2}\/\d{4}$/;
+    //var datepattern = /^\d{1,2}\/\d{1,2}\/\d{4}$/;
+    var datepattern = /^\d{2}\/\d{2}\/\d{4}$/; // mm/dd/yyyy only
     if (document.SignUp.dob.value.match(datepattern)) {
       return true;
     } else {
