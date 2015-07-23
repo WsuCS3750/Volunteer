@@ -22,6 +22,7 @@
 
 <h2>Thank you for submitting your information.</h2>
 
+
 <table>
 
 
@@ -39,6 +40,27 @@
     <td>${dob}</td>
   </tr>
 </table>
+
+
+
+<%--<h1>Volunteers</h1>--%>
+
+<%--<table id="volunteerTable">--%>
+  <%----%>
+  <%--<script type = "text/javascript">--%>
+    <%--var volunteers = new Array();--%>
+  <%--</script>--%>
+  <%--<c:forEach items="${volunteers}" var="listVar" varStatus="n">--%>
+    <%--<tr>--%>
+      <%--<td><c:out value="${listVar}" /></td>--%>
+    <%--</tr>--%>
+  <%--</c:forEach>--%>
+
+<%--</table>--%>
+
+
+
+
 
 
 </body>

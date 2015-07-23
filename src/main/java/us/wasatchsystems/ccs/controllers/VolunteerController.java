@@ -11,8 +11,13 @@ import org.springframework.web.servlet.ModelAndView;
 import us.wasatchsystems.ccs.datasource.VolunteerDataSource;
 import us.wasatchsystems.ccs.models.Volunteer;
 
+import java.util.*;
+
 /**
  * Created by Jake on 7/12/2015.
+ *
+ *
+ *
  */
 
 
@@ -25,30 +30,35 @@ public class VolunteerController {
 
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
     public ModelAndView volunteer() {
+
         return new ModelAndView("signup", "command", new Volunteer());
     }
 
 
+
+    Map<Long, String> volunteerMap = new HashMap<Long, String>();
 
     @RequestMapping(value = "/addVolunteer", method = RequestMethod.POST)
     public String addVolunteer(@ModelAttribute("SpringWeb")Volunteer volunteer,
                              ModelMap model) {
 
 
+        // displays the input that was entered
         model.addAttribute("firstName", volunteer.getFirstName());
         model.addAttribute("lastName", volunteer.getLastName());
         model.addAttribute("dob", volunteer.getDob());
 
-
+        // insert into the database
         VolunteerDataSource.addVolunteer(volunteer);
 
 
-        //log.info("Successfully inserted into the database");
 
-
-
+        // default return
         return "result";
     }
+
+
+
 
 
 

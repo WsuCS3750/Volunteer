@@ -11,8 +11,6 @@
     <properties>
         <spring.version>4.1.1.RELEASE</spring.version>
         <log4j.version>2.0.2</log4j.version>
-
-
         <jdbc.groupId>com.microsoft.sqlserver</jdbc.groupId>
         <jdbc.artifactId>sqljdbc4</jdbc.artifactId>
         <jdbc.version>4.0</jdbc.version>
@@ -20,16 +18,13 @@
     </properties>
 
 
-
     <modules>
 
     </modules>
 
+
+
     <dependencies>
-
-
-
-
 
 
         <dependency>
@@ -159,11 +154,6 @@
         </dependency>
 
 
-
-
-
-
-
         <dependency>
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
@@ -255,26 +245,7 @@
             </resource>
         </resources>
 
-        <!--<resources>-->
-            <!--<resource>-->
-                <!--<directory>src/main/resources</directory>-->
-                <!--<targetPath>target</targetPath>-->
-                <!--<includes>-->
-                    <!--<include>log4j2.xml</include>-->
-                    <!--<include>application.properties</include>-->
-                <!--</includes>-->
-            <!--</resource>-->
-        <!--</resources>-->
 
-        <!--<resources>-->
-            <!--<resource>-->
-                <!--<directory>lib</directory>-->
-                <!--<targetPath>target/lib</targetPath>-->
-                <!--<includes>-->
-                    <!--<include>lib/*</include>-->
-                <!--</includes>-->
-            <!--</resource>-->
-        <!--</resources>-->
 
         <testSourceDirectory>src/test/java</testSourceDirectory>
         <testResources>
