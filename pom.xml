@@ -201,8 +201,25 @@
 
 
 
+        <!-- Bootstrap dependencies -->
 
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>webjars-locator</artifactId>
+            <version>0.1</version>
+        </dependency>
 
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
+            <version>2.0.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>3.0.0</version>
+        </dependency>
 
 
 
@@ -221,9 +238,6 @@
                     <include>application.properties</include>
                 </includes>
             </resource>
-        </resources>
-
-        <resources>
             <resource>
                 <directory>src/main/resources</directory>
                 <targetPath>target</targetPath>
@@ -232,9 +246,6 @@
                     <include>application.properties</include>
                 </includes>
             </resource>
-        </resources>
-
-        <resources>
             <resource>
                 <directory>lib</directory>
                 <targetPath>target/lib</targetPath>
@@ -243,6 +254,27 @@
                 </includes>
             </resource>
         </resources>
+
+        <!--<resources>-->
+            <!--<resource>-->
+                <!--<directory>src/main/resources</directory>-->
+                <!--<targetPath>target</targetPath>-->
+                <!--<includes>-->
+                    <!--<include>log4j2.xml</include>-->
+                    <!--<include>application.properties</include>-->
+                <!--</includes>-->
+            <!--</resource>-->
+        <!--</resources>-->
+
+        <!--<resources>-->
+            <!--<resource>-->
+                <!--<directory>lib</directory>-->
+                <!--<targetPath>target/lib</targetPath>-->
+                <!--<includes>-->
+                    <!--<include>lib/*</include>-->
+                <!--</includes>-->
+            <!--</resource>-->
+        <!--</resources>-->
 
         <testSourceDirectory>src/test/java</testSourceDirectory>
         <testResources>
