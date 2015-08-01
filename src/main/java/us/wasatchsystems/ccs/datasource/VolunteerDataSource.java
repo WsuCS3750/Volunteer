@@ -1,6 +1,5 @@
 package us.wasatchsystems.ccs.datasource;
 
-import com.mysql.jdbc.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import us.wasatchsystems.ccs.models.Volunteer;
@@ -14,6 +13,11 @@ import java.util.List;
 /**
  * Created by Jake on 7/16/2015.
  *
+ *
+ *
+ *
+ * Handles all of the insert update, and delete for the volunteer. Gets the connection if it does not exist
+ * the executes the sql stuff.
  */
 
 public class VolunteerDataSource {
@@ -38,7 +42,10 @@ public class VolunteerDataSource {
     }
 
 
-
+    /**
+     * Gets all the volunteers as a list.
+     * @return List of all volunteers
+     */
 
 
     public static List<Volunteer> queryAll() {
@@ -129,12 +136,7 @@ public class VolunteerDataSource {
             connection.commit();
 
             log.info("Inserted ok");
-//            if(cstmt.execute()) {
-//                log.info("Successfully inserted into the database");
-//            }
-//            else {
-//                log.info("Unsuccessfully inserted into the database");
-//            }
+
 
         } catch (SQLException sqle) {
             sqle.printStackTrace();

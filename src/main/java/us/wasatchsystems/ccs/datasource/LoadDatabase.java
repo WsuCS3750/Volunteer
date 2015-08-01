@@ -25,6 +25,11 @@ public class LoadDatabase {
     public static Connection connection = null;
 
 
+    /**
+     * Opens up the connection if it is not open already, if it is open then it establishes the connection with the database.
+     * @return the connection for querying.
+     * @throws SQLException
+     */
 
     public static Connection getConnection() throws SQLException {
 
@@ -76,6 +81,10 @@ public class LoadDatabase {
     }
 
 
+    /**
+     * Use this to test if your driver works properly.
+     * @throws Exception
+     */
 
 
 
@@ -86,6 +95,14 @@ public class LoadDatabase {
     }
 
 
+
+
+
+
+
+    /**
+     * Tests the logger to see if it works.
+     */
 
     public static void testLogger() {
         log.info("Calling test logger");

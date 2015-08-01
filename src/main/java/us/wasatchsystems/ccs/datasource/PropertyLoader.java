@@ -37,6 +37,10 @@ public class PropertyLoader {
     Properties properties;
 
 
+    /**
+     * Setup the properties file so they can be accessed.
+     */
+
     public PropertyLoader() {
 
         ClassPathResource propertiesResource = new ClassPathResource("application.properties");
