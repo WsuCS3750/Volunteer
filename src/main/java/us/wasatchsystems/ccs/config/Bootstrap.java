@@ -9,10 +9,24 @@ import javax.servlet.ServletException;
 
 /**
  * Created by Jake on 7/22/2015.
+ *
+ *
+ *
+ *
  */
+
+
 public class Bootstrap implements WebApplicationInitializer {
 
     private static final Logger log = LogManager.getLogger(Bootstrap.class);
+
+
+    /**
+     * This method is called when the application is first started.
+     * @param servletContext
+     * @throws ServletException
+     */
+
 
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
