@@ -7,17 +7,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-  <title>Prototype Sign Up</title>
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<!-- Basic template for the first part -->
+<jsp:include page="blades/head.jsp" />
+<jsp:include page="blades/header.jsp" />
 
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-
-</head>
-<body>
 
 <h2>Please input your information below.</h2>
 
@@ -98,5 +91,7 @@
   }
 </script>
 
-</body>
-</html>
+<!-- Basic template for the first part -->
+<jsp:include page="blades/head.jsp" />
+<jsp:include page="blades/header.jsp" />
+

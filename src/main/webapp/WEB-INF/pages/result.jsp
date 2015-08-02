@@ -6,18 +6,13 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-  <title>Prototype Results</title>
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
 
-</head>
-<body>
+<!-- Basic template for the first part -->
+<jsp:include page="blades/head.jsp" />
+<jsp:include page="blades/header.jsp" />
+
+
 
 
 <h2>Thank you for submitting your information.</h2>
@@ -62,6 +57,7 @@
 
 
 
+<!-- Basic template for the first part -->
+<jsp:include page="blades/head.jsp" />
+<jsp:include page="blades/header.jsp" />
 
-</body>
-</html>
