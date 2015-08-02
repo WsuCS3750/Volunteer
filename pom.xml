@@ -18,6 +18,7 @@
     </properties>
 
 
+    <!-- Multi module projects can be problem some especially with web applications -->
     <modules>
 
     </modules>
@@ -25,7 +26,6 @@
 
 
     <dependencies>
-
 
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
@@ -192,7 +192,6 @@
 
 
         <!-- Bootstrap dependencies -->
-
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>webjars-locator</artifactId>
@@ -271,6 +270,14 @@
                     </includes>
                 </configuration>
             </plugin>
+
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+
         </plugins>
     </build>
 </project>

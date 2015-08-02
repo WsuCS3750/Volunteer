@@ -11,11 +11,6 @@
 <%--</head>--%>
 
 <head>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
 
 	</head>
@@ -26,9 +21,14 @@
 </body>
 
 
-<form action="/signup" class="button">
-	<input type="submit" value="SignUp!"/>
-</form>
+<!-- Weird formatting -->
+<%--<form action="/signup">--%>
+	<%--<input type="submit" value="SignUp!"/>--%>
+	<%--Signup!--%>
+<%--</form>--%>
+
+<%--<button class="btn btn-primary">Signup</button>--%>
+<a class = "btn btn-primary btn-success" href="<c:url value="signup" />">Signup</a>
 
 
 
@@ -37,8 +37,16 @@
 
 
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" />
+<script src="<c:url value="/resources/core/jquery.1.10.2.min.js" />"></script>
+<script src="<c:url value="/resources/core/jquery.autocomplete.min.js" />"></script>
+<%--<script src="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" />"></script>--%>
+<script src="<c:url value="/resources/core/bootstrap.min.js" />"></script>
 
 
 </html>
