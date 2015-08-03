@@ -36,6 +36,6 @@
 
 
 <!-- Basic template for the first part -->
-<jsp:include page="blades/head.jsp" />
-<jsp:include page="blades/header.jsp" />
+<jsp:include page="blades/footer.jsp" />
+<jsp:include page="blades/foot.jsp" />
 
