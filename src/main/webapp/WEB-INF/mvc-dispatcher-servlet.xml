@@ -18,6 +18,9 @@
 
     <!--<mvc:resources mapping="/resources/**" location="resources" />-->
 
+    <!--<mvc:resources mapping="/resources/**" location="resources" />-->
+    <!--<mvc:resources mapping="main.css" location="resources/" />-->
+
 
 
 

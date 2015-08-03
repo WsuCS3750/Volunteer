@@ -9,4 +9,8 @@
 <html>
 
 
-<h1>A very basic footer</h1>
+<footer class="footer">
+  <div class="container">
+    <p class="text-muted">Wasatch Systems 2015</p>
+  </div>
+</footer>

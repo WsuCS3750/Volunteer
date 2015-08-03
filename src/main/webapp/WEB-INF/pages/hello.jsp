@@ -6,6 +6,7 @@
 <jsp:include page="blades/header.jsp" />
 
 
+<%--<link rel = "stylesheet" type = "text/css" href = "<c:url value="resources/css/main.css" />" />--%>
 
 
 <h1>${message}</h1>
