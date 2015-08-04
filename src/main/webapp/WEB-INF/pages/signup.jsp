@@ -14,12 +14,16 @@
 
 <h2>Please input your information below.</h2>
 
+
 <form:form id="SignUp" name="SignUp" method="POST" action="/addVolunteer">
+
 
   <table>
     <tr>
-      <td><form:label path="firstName">First Name:  </form:label></td>
-      <td><form:input id="firstName" name="firstName" path="firstName" /></td>
+      <div class = "form-group">
+        <td><form:label path="firstName">First Name:  </form:label></td>
+        <td><form:input id="firstName" name="firstName" path="firstName" /></td>
+      </div>
     </tr>
     <tr>
       <td><form:label path="lastName">Last Name:  </form:label></td>
@@ -31,13 +35,16 @@
     </tr>
     <tr>
       <td colspan="2">
-        <input type="submit" value="Submit" onclick="return validateForm()"/>
+        <input class = "btn btn-success" type="submit" value="Submit" onclick="return validateForm()"/>
       </td>
     </tr>
   </table>
 
 
+
 </form:form>
+
+
 
 <script type="text/javascript">
   function validateForm()
