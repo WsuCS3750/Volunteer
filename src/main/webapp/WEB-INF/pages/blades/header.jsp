@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: Jake
@@ -21,7 +22,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Volunteer CCS</a>
+      <a class="navbar-brand" href="<c:url value="/" />">Volunteer CCS</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

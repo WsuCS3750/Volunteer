@@ -13,9 +13,8 @@
   <title>CCS Volunteer Database</title>
   <script src="<c:url value='/resources/js/angular/1.4.1/angular.min.js' />"></script>
   <script src="<c:url value='/resources/js/echo.js' />"></script>
-  <%--<link rel="stylesheet" href="<c:url value="/resources/stylesheet/main.css" />">--%>
-  <%--<link rel="stylesheet" type = "text/css" href="<c:url value="/resources/css/main.css" />" />--%>
-  <link rel="stylesheet" type = "text/css" href="<c:url value="../../resources/ccs/main.css" />" />
+
+
 </head>
 
 <body>

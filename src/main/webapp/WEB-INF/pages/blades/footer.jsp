@@ -9,7 +9,7 @@
 <html>
 
 
-<footer class="footer">
+<footer class="footer navbar navbar-fixed-bottom">
   <div class="container">
     <p class="text-muted">Wasatch Systems 2015</p>
   </div>

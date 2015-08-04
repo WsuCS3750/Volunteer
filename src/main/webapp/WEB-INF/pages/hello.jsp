@@ -6,10 +6,27 @@
 <jsp:include page="blades/header.jsp" />
 
 
+
+
 <%--<link rel = "stylesheet" type = "text/css" href = "<c:url value="resources/css/main.css" />" />--%>
 
 
-<h1>${message}</h1>
+<%--How to display a message --%>
+<%--<h1>${message}</h1>--%>
+
+
+<div class = "jumbotron">
+    <div class = "container">
+        <h1>CCS Volunteer Database</h1>
+        <a class = "btn btn-primary btn-success" href="<c:url value="signup" />">Signup</a>
+
+
+
+    </div>
+</div>
+
+
+
 
 
 
@@ -25,7 +42,6 @@
 <%--</form>--%>
 
 <%--<button class="btn btn-primary">Signup</button>--%>
-<a class = "btn btn-primary btn-success" href="<c:url value="signup" />">Signup</a>
 
 
 

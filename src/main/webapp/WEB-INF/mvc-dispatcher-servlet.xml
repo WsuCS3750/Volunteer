@@ -13,13 +13,13 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <!--<mvc:resources mapping="/resources/**" location="/" />-->
-    <!--<mvc:resources mapping="/resources/**" location="resources" />-->
 
-    <!--<mvc:resources mapping="/resources/**" location="resources" />-->
+    <!--<mvc:resources mapping="main.css" location="resources/custom/main.css" />-->
+    <!--<mvc:resources mapping="/resources/" location="/WEB-INF/resources/custom" />-->
+    <!--<mvc:resources mapping="/" location="/WEB-INF/pages/" />-->
 
-    <!--<mvc:resources mapping="/resources/**" location="resources" />-->
-    <!--<mvc:resources mapping="main.css" location="resources/" />-->
+
+    <!--<mvc:resources mapping="resources/**" location="resources" cache-period="0"/>-->
 
 
 
