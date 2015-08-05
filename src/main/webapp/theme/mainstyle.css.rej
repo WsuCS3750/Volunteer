@@ -1,0 +1,8 @@
+diff a/src/main/webapp/theme/mainstyle.css b/src/main/webapp/theme/mainstyle.css	(rejected hunks)
+@@ -0,0 +1,5 @@
++body {
++    background-color: black;
++    color: white;
++    margin: 0px auto;
++}
+\ No newline at end of file
