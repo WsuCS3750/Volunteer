@@ -20,10 +20,12 @@
 
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" />
-<script src="<c:url value="/resources/core/jquery.1.10.2.min.js" />"></script>
-<script src="<c:url value="/resources/core/jquery.autocomplete.min.js" />"></script>
+<%--<script src="<c:url value="/resources/core/jquery.1.10.2.min.js" />"></script>--%>
+<%--<script src="<c:url value="/resources/core/jquery.autocomplete.min.js" />"></script>--%>
+<%----%>
+<%--<script src="<c:url value="/resources/core/bootstrap.min.js" />"></script>--%>
 
-<script src="<c:url value="/resources/core/bootstrap.min.js" />"></script>
+<link rel = "stylesheet" type="text/css" href="${pageContext.request.contextPath}/theme/mainstyle.css" />
 
 
 
