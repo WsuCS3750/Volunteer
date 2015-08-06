@@ -51,6 +51,8 @@ public class PropertyLoader {
             properties = new Properties();
             properties.load(in);
 
+            log.info("Successfully loaded the properties");
+
         } catch (IOException ioe) {
             ioe.printStackTrace();
             log.error("Error in loading the config file");

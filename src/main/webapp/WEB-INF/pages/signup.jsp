@@ -15,7 +15,7 @@
 <h2>Please input your information below.</h2>
 
 
-<form:form id="SignUp" name="SignUp" method="POST" action="/addVolunteer">
+<form:form id="SignUp" name="SignUp" method="POST" action="addVolunteer">
 
 
   <table>
