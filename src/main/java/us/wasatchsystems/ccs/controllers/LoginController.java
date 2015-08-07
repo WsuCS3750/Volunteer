@@ -1,8 +1,11 @@
 package us.wasatchsystems.ccs.controllers;
 
 import com.sun.org.apache.xpath.internal.operations.Mod;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,7 +27,7 @@ import us.wasatchsystems.ccs.models.Volunteer;
 
 public class LoginController {
 
-
+    private Logger log = LogManager.getLogger(LoginController.class);
 
 
 
@@ -42,7 +45,18 @@ public class LoginController {
         return "loginPage";
     }
 
-
+//
+//    @RequestMapping(value = "/doLogin", method = RequestMethod.POST)
+//    public String doLogin(@ModelAttribute("SpringWeb")Login login,
+//                          ModelMap modelMap) {
+//
+//        modelMap.addAttribute("username", login.getUserName());
+//        modelMap.addAttribute("password", login.getPassword());
+//
+//
+//        return "result";
+//
+//    }
 
 
 
