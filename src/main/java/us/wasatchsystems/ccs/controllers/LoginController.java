@@ -1,20 +1,14 @@
 package us.wasatchsystems.ccs.controllers;
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import us.wasatchsystems.ccs.models.Login;
-import us.wasatchsystems.ccs.models.Volunteer;
 
 import javax.servlet.http.HttpServletRequest;
 

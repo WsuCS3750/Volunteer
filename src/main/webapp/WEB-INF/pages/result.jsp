@@ -43,9 +43,9 @@
 <%--<table id="volunteerTable">--%>
   <%----%>
   <%--<script type = "text/javascript">--%>
-    <%--var volunteers = new Array();--%>
+    <%--var users = new Array();--%>
   <%--</script>--%>
-  <%--<c:forEach items="${volunteers}" var="listVar" varStatus="n">--%>
+  <%--<c:forEach items="${users}" var="listVar" varStatus="n">--%>
     <%--<tr>--%>
       <%--<td><c:out value="${listVar}" /></td>--%>
     <%--</tr>--%>

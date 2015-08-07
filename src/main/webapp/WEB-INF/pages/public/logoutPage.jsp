@@ -10,7 +10,9 @@
 <jsp:include page="../blades/head.jsp" />
 <jsp:include page="../blades/header.jsp" />
 
+<div class = "spacer">
 
+</div>
 
 
 

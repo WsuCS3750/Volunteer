@@ -33,11 +33,46 @@
       <td><form:label path="dob">Date of Birth:  </form:label></td>
       <td><form:input id="dob" path="dob" /></td>
     </tr>
+
+
+
+
+    <%--Not inserting into the database yet--%>
+
+    <tr>
+      <td><form:label path="username">Username: </form:label> </td>
+      <td><form:input id = "username" name = "username" path="username" /> </td>
+    </tr>
+
+
+    <tr>
+      <td><form:label path="password">Password: </form:label> </td>
+      <td><form:input id = "password" name = "password" path="password" /> </td>
+    </tr>
+
+    <tr>
+      <td><form:label path="confirmPassword">Confirm Password: </form:label> </td>
+      <td><form:input id = "confirmPassword" name = "confirmPassword" path="confirmPassword" /> </td>
+    </tr>
+
+
+    <tr>
+      <div class = "checkbox">
+        <label>
+          <input type="checkbox" />Click for admin status on account
+        </label>
+      </div>
+
+    </tr>
+
+
     <tr>
       <td colspan="2">
         <input class = "btn btn-success" type="submit" value="Submit" onclick="return validateForm()"/>
       </td>
     </tr>
+
+
   </table>
 
 
@@ -61,6 +96,11 @@
       return false;
     }
   }
+
+
+
+
+
   function validateFirstName()
   {
     var letterpattern = /^[a-zA-Z]+$/;

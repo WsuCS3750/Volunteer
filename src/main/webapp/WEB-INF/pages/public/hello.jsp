@@ -20,7 +20,7 @@
 <div class = "jumbotron">
     <div class = "container">
         <h1>CCS Volunteer Database</h1>
-        <a class = "btn btn-primary btn-success" href="<c:url value="signup" />">Signup</a>
+        <%--<a class = "btn btn-primary btn-success" href="<c:url value="signup" />">Signup</a>--%>
 
 
         <!-- Prints the username -->
@@ -47,7 +47,7 @@
 
 
 
-        <a class = "btn btn-primary btn-success" href="<c:url value="logout" />">Logout</a>
+        <%--<a class = "btn btn-primary btn-success" href="<c:url value="logout" />">Logout</a>--%>
 
     </div>
 </div>

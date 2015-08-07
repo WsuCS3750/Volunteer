@@ -2,18 +2,19 @@
 
 -- Create the simple volunteer table
 
+
 use volunteer;
-go
-CREATE TABLE Volunteer
+go;
+CREATE TABLE UserTable
 (
-	VolunteerID			int		NOT NULL	IDENTITY(1, 1),
-	VolunteerFirstName	varchar(25)		NOT NULL,
-	VolunteerLastName	varchar(30)		NOT NULL,
-	VolunteerDoB		smalldatetime	NOT NULL
-)
+  user_id INT PRIMARY KEY NOT NULL IDENTITY,
+  firstName VARCHAR(50) NOT NULL,
+  lastName VARCHAR(50) NOT NULL,
+  userName VARCHAR(50) NOT NULL,
+  password VARCHAR(200) NOT NULL,
+  adminStatus VARCHAR(3) NOT NULL default 'n',
+  joinDate SMALLDATETIME DEFAULT getdate()  NOT NULL,
+  modifiedOn TIMESTAMP NOT NULL,
 
-ALTER TABLE VOLUNTEER
-	ADD CONSTRAINT PK_VolunteerID
-	PRIMARY KEY (VolunteerID)
+);
 
-;

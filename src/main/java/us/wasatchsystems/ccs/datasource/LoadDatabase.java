@@ -116,8 +116,9 @@ public class LoadDatabase {
 
     public static void main(String[] args) throws Exception {
 
+        Connection connection = LoadDatabase.getConnection();
 
-        LoadDatabase.testDriver();
+//        LoadDatabase.testDriver();
 
 
     }
