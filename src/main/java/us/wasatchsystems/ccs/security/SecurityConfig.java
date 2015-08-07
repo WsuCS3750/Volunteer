@@ -51,7 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         auth.jdbcAuthentication().dataSource(dataSource)
                 .usersByUsernameQuery("select userName as username, password, (select 1) as enabled from volunteer.dbo.UserTable as users where userName = ?;")
-                .authoritiesByUsernameQuery("select username, (select case when adminStatus = 'y' then 'ROLE_ADMIN' else 'ROLE_USER' END as varchar) as role from UserTable as user_roles where username = ?;")
+                .authoritiesByUsernameQuery("select username, (select case when adminStatus = 'y' then 'ROLE_ADMIN' else 'ROLE_USER' END as varchar) as role from volunteer.dbo.UserTable as user_roles where username = ?;")
                 ;
 
 
