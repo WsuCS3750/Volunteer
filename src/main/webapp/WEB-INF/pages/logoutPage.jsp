@@ -6,13 +6,16 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+<!-- Basic template for the header -->
+<jsp:include page="blades/head.jsp" />
+<jsp:include page="blades/header.jsp" />
+
+
+
+
 
 <h1>You have logged out</h1>
 
-</body>
-</html>
+<!-- Basic template for the footer and end of page -->
+<jsp:include page="blades/footer.jsp" />
+<jsp:include page="blades/foot.jsp" />

@@ -9,6 +9,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.authentication.logout.CookieClearingLogoutHandler;
+import org.springframework.security.web.authentication.logout.LogoutHandler;
 
 /**
  * Created by Jake on 8/6/2015.
@@ -30,7 +32,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.inMemoryAuthentication()
                 .withUser("user")
                 .password("password")
-                .roles("USER");
+                .roles("USER")
+
+
+
+        ;
 
     }
 
@@ -38,12 +44,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     protected void configure(HttpSecurity http) throws Exception {
 
+        LogoutHandler logoutHandler = new CookieClearingLogoutHandler("all");
 
         http
                 .authorizeRequests()
                 .antMatchers("/resources/**").permitAll()
                 .antMatchers("/").permitAll()
-                .antMatchers("logoutPage").permitAll()
+                .antMatchers("/showLogout").permitAll()
+                .antMatchers("/signup").permitAll()
+
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -52,7 +61,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
 
                 .logout()
-//                .logoutSuccessUrl("logoutPage")
+
+
+//                .logoutUrl("j_spring_security_logout")
+//                .addLogoutHandler(logoutHandler)
+//                .logoutSuccessUrl("/logoutPage")
+
+
 
                 .permitAll()
 

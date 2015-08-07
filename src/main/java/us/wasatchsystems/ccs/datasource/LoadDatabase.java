@@ -117,7 +117,7 @@ public class LoadDatabase {
     public static void main(String[] args) throws Exception {
 
 
-        LoadDatabase.testLogger();
+        LoadDatabase.testDriver();
 
 
     }

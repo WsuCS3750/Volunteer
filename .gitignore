@@ -119,3 +119,4 @@ lib/sqlserver_jdbc/*
 
 
 target
+lib/sqljdbc_4.2

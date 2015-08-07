@@ -35,7 +35,19 @@
 
 
 
+
+
         <%--<a class="btn btn-primary btn-success" href="<c:url value="j_spring_security_logout" />">LogOut</a>--%>
+
+
+
+        <%--<a class="btn btn-primary btn-success" href="<c:url value="<%@attribute name="" type="us.wasatchsystems.ccs.controllers.AdministrationController" required=""%>" />">LogOut</a>--%>
+
+
+
+
+
+        <a class = "btn btn-primary btn-success" href="<c:url value="logout" />">Logout</a>
 
     </div>
 </div>
