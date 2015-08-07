@@ -20,6 +20,7 @@
         <h1>CCS Volunteer Database</h1>
         <a class = "btn btn-primary btn-success" href="<c:url value="signup" />">Signup</a>
 
+        <a class="btn btn-primary btn-success" href="<c:url value="admin/admin" />">Manage</a>
 
 
     </div>

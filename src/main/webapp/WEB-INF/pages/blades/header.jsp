@@ -94,6 +94,12 @@
         <li>
           <a href="<c:url value="login" />">Login</a>
         </li>
+
+        <li>
+          <a href = "<c:url value="admin/admin"/>">Admin</a>
+        </li>
+
+
       </ul>
 
     </div>
