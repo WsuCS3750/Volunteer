@@ -25,21 +25,21 @@ public class HomeController {
 
         model.addAttribute("message", "Hello world!");
 
-        return "hello";
+        return "/public/hello";
 
     }
 
 
-    @RequestMapping(value = "/about", method = RequestMethod.GET)
+    @RequestMapping(value = "/public/about", method = RequestMethod.GET)
     public String showAbout(ModelAndView modelAndView) {
-        return "about";
+        return "/public/about";
     }
 
 
 
-    @RequestMapping(value = "/contact", method = RequestMethod.GET)
+    @RequestMapping(value = "/public/contact", method = RequestMethod.GET)
     public String showContact(ModelAndView modelAndView) {
-        return "contact";
+        return "/public/contact";
     }
 
 

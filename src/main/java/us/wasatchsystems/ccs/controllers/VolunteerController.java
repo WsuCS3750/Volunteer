@@ -28,17 +28,17 @@ public class VolunteerController {
     private static final Logger log = LogManager.getLogger(VolunteerController.class);
 
 
-    @RequestMapping(value = "/signup", method = RequestMethod.GET)
+    @RequestMapping(value = "/public/signup", method = RequestMethod.GET)
     public ModelAndView volunteer() {
 
-        return new ModelAndView("signup", "command", new Volunteer());
+        return new ModelAndView("/public/signup", "command", new Volunteer());
     }
 
 
 
     Map<Long, String> volunteerMap = new HashMap<Long, String>();
 
-    @RequestMapping(value = "/addVolunteer", method = RequestMethod.POST)
+    @RequestMapping(value = "/public/addVolunteer", method = RequestMethod.POST)
     public String addVolunteer(@ModelAttribute("SpringWeb")Volunteer volunteer,
                              ModelMap model) {
 

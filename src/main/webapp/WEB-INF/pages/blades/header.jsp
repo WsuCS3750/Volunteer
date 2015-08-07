@@ -74,34 +74,42 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="/" class="navbar-brand">VolunteerDB</a>
+      <a href="<c:url value="/"/>" class="navbar-brand">VolunteerDB</a>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li><a href="<c:url value="about" />">About</a></li>
-        <li><a href="<c:url value="contact" />">Contact</a></li>
+        <li><a href="<c:url value="/public/about" />">About</a></li>
+        <li><a href="<c:url value="/public/contact" />">Contact</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
         <%--<li><a href="Account/Manage" title="Manage your account">Hello, jake!</a></li>--%>
 
         <%--Signup--%>
-          <li><a href = "<c:url value="signup" />">Signup</a></li>
+          <li><a href = "<c:url value="/public/signup" />">Signup</a></li>
 
 
 
         <%--Login / Logoff --%>
         <li>
-          <a href="<c:url value="login" />">Login</a>
+          <%--<a href="<c:url value="/public/login" />">Login</a>--%>
+          <a href="<c:url value="/login" />">Login</a>
         </li>
 
         <li>
-          <a href = "<c:url value="admin/admin"/>">Admin</a>
+          <a href = "<c:url value="/admin/admin"/>">Admin</a>
         </li>
 
+          <%--<a class = "btn btn-primary btn-success" href="<c:url value="logout" />">Logout</a>--%>
+        <li>
+          <a href = "<c:url value="/public/logout" />">Logout</a>
+        </li>
 
       </ul>
 
     </div>
   </div>
+</div>
+<div class = "spacer">
+
 </div>

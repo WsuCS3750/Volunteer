@@ -52,6 +52,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers("/showLogout").permitAll()
                 .antMatchers("/signup").permitAll()
+                .antMatchers("/public/**").permitAll()              // permit all pages within the public folder.
 
                 .anyRequest().authenticated()
                 .and()

@@ -37,18 +37,18 @@ public class LoginController {
 
 
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = "/public/login", method = RequestMethod.GET)
     public ModelAndView login(ModelMap modelMap) {
-        return new ModelAndView("loginPage", "command", new Login());
+        return new ModelAndView("/public/loginPage", "command", new Login());
     }
 
 
 
 
-    @RequestMapping(value = "/loginError", method = RequestMethod.GET)
+    @RequestMapping(value = "/public/loginError", method = RequestMethod.GET)
     public String loginError(ModelMap modelMap) {
         modelMap.addAttribute("error", "true");
-        return "loginPage";
+        return "/public/loginPage";
     }
 
 
@@ -69,7 +69,7 @@ public class LoginController {
 //    }
 
 
-    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    @RequestMapping(value = "/public/logout", method = RequestMethod.GET)
     public String doLogout(ModelMap modelMap) {
         // do logout
 
@@ -78,7 +78,7 @@ public class LoginController {
         // put you have logged out here
 
 
-        return "/logoutPage";
+        return "/public/logoutPage";
     }
 
 

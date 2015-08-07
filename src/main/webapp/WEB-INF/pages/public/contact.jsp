@@ -10,17 +10,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!-- Basic template for the header -->
-<jsp:include page="blades/head.jsp" />
-<jsp:include page="blades/header.jsp" />
+<jsp:include page="../blades/head.jsp" />
+<jsp:include page="../blades/header.jsp" />
 
 
-<h1>About us</h1>
+<h1>Contact</h1>
 
 
-<h3>CCS</h3>
+<h3>CCS Contact</h3>
 
-
-<h3>Wasatch Systems</h3>
 
 
 
@@ -29,6 +27,6 @@
 
 
 <!-- Basic template for the footer and end of page -->
-<jsp:include page="blades/footer.jsp" />
-<jsp:include page="blades/foot.jsp" />
+<jsp:include page="../blades/footer.jsp" />
+<jsp:include page="../blades/foot.jsp" />
 

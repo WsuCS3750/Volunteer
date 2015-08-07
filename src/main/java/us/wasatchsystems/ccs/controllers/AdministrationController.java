@@ -18,7 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
  */
 
 @Controller
-
+@RequestMapping("/")
 public class AdministrationController {
 
 
@@ -31,7 +31,7 @@ public class AdministrationController {
 
     @RequestMapping(value = "/admin/admin", method = RequestMethod.GET)
     public String showContact(ModelAndView modelAndView) {
-        return "admin/admin";
+        return "/admin/admin";
     }
 
 
