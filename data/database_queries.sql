@@ -1,0 +1,1 @@
+select username, (select case when adminStatus = 'y' then 'ADMIN' else 'USER' END as varchar  ) from UserTable;

@@ -27,6 +27,9 @@ public class LoadDatabase {
     public static Connection connection = null;
 
 
+    public static SQLServerDataSource ds = null;
+
+
     /**
      * Opens up the connection if it is not open already, if it is open then it establishes the connection with the database.
      * @return the connection for querying.
@@ -52,7 +55,7 @@ public class LoadDatabase {
         //jdbc:sqlserver://localhost:1433;databaseName=CCS_PROTOTYPE
         try {
             // Establish the connection.
-            SQLServerDataSource ds = new SQLServerDataSource();
+            ds = new SQLServerDataSource();
 
             // Use windows based authentication.
             ds.setIntegratedSecurity(false);
@@ -79,6 +82,59 @@ public class LoadDatabase {
 
             return null;
         }
+
+    }
+
+
+    public static SQLServerDataSource getDataSource() {
+        try {
+
+            if(ds != null) {
+                return ds;
+            }
+
+            //Load the properties
+            PropertyLoader propertyLoader = new PropertyLoader();
+
+            // Initialize the driver
+            DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
+
+            Connection con = null;
+            CallableStatement cstmt = null;
+            ResultSet rs = null;
+
+            //jdbc:sqlserver://localhost:1433;databaseName=CCS_PROTOTYPE
+
+            // Establish the connection.
+            ds = new SQLServerDataSource();
+
+            // Use windows based authentication.
+            ds.setIntegratedSecurity(false);
+
+
+            // Load the properties and get it to load
+            ds.setServerName(propertyLoader.getServerName());
+            ds.setDatabaseName(propertyLoader.getDatabaseName());
+            ds.setPortNumber(propertyLoader.getPort());
+            ds.setUser(propertyLoader.getUserName());
+            ds.setPassword(propertyLoader.getUserPassword());
+
+
+            // Connect to the database.
+            con = ds.getConnection();
+
+
+            log.info("You successfully connected to the database");
+            return ds;
+
+        } catch (Exception ex1) {
+            ex1.printStackTrace();
+            log.error("An error occurred in connecting to the database");
+
+            return null;
+        }
+
+
 
     }
 

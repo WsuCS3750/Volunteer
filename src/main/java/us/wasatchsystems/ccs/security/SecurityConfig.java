@@ -11,6 +11,13 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.authentication.logout.CookieClearingLogoutHandler;
 import org.springframework.security.web.authentication.logout.LogoutHandler;
+import us.wasatchsystems.ccs.datasource.LoadDatabase;
+
+import javax.sql.DataSource;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.SQLFeatureNotSupportedException;
 
 /**
  * Created by Jake on 8/6/2015.
@@ -27,16 +34,30 @@ import org.springframework.security.web.authentication.logout.LogoutHandler;
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    private Logger log = LogManager.getLogger(SecurityConfig.class);
+
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("user")
-                .password("password")
-                .roles("USER")
+
+        DataSource dataSource = LoadDatabase.getDataSource();
+        if(dataSource == null) {
+            log.error("Unable to get the datasource");
+        }
+        else {
+            log.error("Loaded the data source successfully");
+        }
 
 
 
-        ;
+
+        auth.jdbcAuthentication().dataSource(dataSource)
+                .usersByUsernameQuery("select userName as username, password, (select 1) as enabled from volunteer.dbo.UserTable as users where userName = ?;")
+                .authoritiesByUsernameQuery("select username, (select case when adminStatus = 'y' then 'ROLE_ADMIN' else 'ROLE_USER' END as varchar) as role from UserTable as user_roles where username = ?;")
+                ;
+
+
+
+
 
     }
 

@@ -59,7 +59,8 @@
     <tr>
       <div class = "checkbox">
         <label>
-          <input type="checkbox" />Click for admin status on account
+          <form:label path="adminStatus">Click for admin status</form:label>
+          <form:checkbox path="adminStatus" id = "adminStatus" name="adminStatus" />
         </label>
       </div>
 
