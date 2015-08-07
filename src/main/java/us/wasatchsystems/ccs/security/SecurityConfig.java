@@ -29,7 +29,6 @@ import java.sql.SQLFeatureNotSupportedException;
 
 
 
-//
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -74,6 +73,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/showLogout").permitAll()
                 .antMatchers("/signup").permitAll()
                 .antMatchers("/public/**").permitAll()              // permit all pages within the public folder.
+                .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
 
                 .anyRequest().authenticated()
                 .and()
@@ -84,6 +84,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .logout()
 
+//                        .logoutSuccessUrl("/public/")
 
 //                .logoutUrl("j_spring_security_logout")
 //                .addLogoutHandler(logoutHandler)
@@ -92,6 +93,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
                 .permitAll()
+
+//                .and().exceptionHandling().accessDeniedPage("/public/loginError")
 
 
         ;
