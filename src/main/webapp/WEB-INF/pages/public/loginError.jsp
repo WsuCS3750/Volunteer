@@ -13,7 +13,7 @@
 <body>
 
 
-<h1>Login Error</h1>
+<h1>There was an error logging in</h1>
 
 </body>
 </html>

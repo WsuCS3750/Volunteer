@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Jake
@@ -13,6 +14,14 @@
 
 
   <h1>Admin page</h1>
+
+
+  <ul>
+  <c:forEach var = "users" items = "${allUsers}">
+    <li>${users.get}</li>
+  </c:forEach>
+  </ul>
+
 
 
 <!-- Basic template for the footer and end of page -->

@@ -52,7 +52,20 @@ public class UserDataSource {
      * @return List of all volunteers
      */
 
+//    CREATE TABLE UserTable
+//            (
+//                    user_id INT PRIMARY KEY NOT NULL IDENTITY,
+//                    firstName VARCHAR(50) NOT NULL,
+//    lastName VARCHAR(50) NOT NULL,
+//    userName VARCHAR(50) NOT NULL,
+//    password VARCHAR(200) NOT NULL,
+//    adminStatus VARCHAR(3) DEFAULT 'n' NOT NULL,
+//    joinDate DATETIME DEFAULT '(getdate())' NOT NULL,
+//    modifiedOn IMAGE NOT NULL
+//    );
 
+
+    // todo
     public static List<User> queryAll() {
 
         try {
@@ -61,7 +74,7 @@ public class UserDataSource {
             List<User> users = new ArrayList<User>();
 
             // Setup the query
-            String SQL = "SELECT * FROM dbo.VOLUNTEER;";
+            String SQL = "SELECT * FROM volunteer.dbo.UserTable;";
             String result = connection.nativeSQL(SQL);
             CallableStatement cstmt = null;
             cstmt = connection.prepareCall(SQL);
@@ -71,15 +84,16 @@ public class UserDataSource {
 
             // Get the data from the result set
             while (rs.next()) {
-                String firstName = rs.getString("VolunteerFirstName");
-                String lastName = rs.getString("VolunteerLastName");
-                Date dob = rs.getDate("VolunteerDoB");
+                String firstName = rs.getString("firstName");
+                String lastName = rs.getString("lastName");
+//                Date dob = rs.getDate("VolunteerDoB");
+                Date joinDate = rs.getDate("joinDate");
 
                 log.info("FirstName: " + firstName);
                 log.info("LastName: " + lastName);
-                log.info("Volunteer DOB: " + dob.toString());
+                log.info("Volunteer DOB: " + joinDate.toString());
 
-                users.add(new User(firstName, lastName, dob.toString()));
+                users.add(new User(firstName, lastName, joinDate.toString()));
 
             }
             return users;
@@ -163,9 +177,9 @@ public class UserDataSource {
 
 
     public static void main(String[] args) {
-//        UserDataSource volunteerDataSource = new UserDataSource();
-        User user = new User("Shane", "Abel", "3/3/3");
-        UserDataSource.addVolunteer(user);
+////        UserDataSource volunteerDataSource = new UserDataSource();
+//        User user = new User("Shane", "Abel", "3/3/3");
+//        UserDataSource.addVolunteer(user);
         for(User v : UserDataSource.queryAll()) {
             System.out.println(v.toString());
         }

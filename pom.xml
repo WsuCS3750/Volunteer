@@ -14,6 +14,8 @@
         <jdbc.groupId>com.microsoft.sqlserver</jdbc.groupId>
         <jdbc.artifactId>sqljdbc4</jdbc.artifactId>
         <jdbc.version>4.0</jdbc.version>
+        <jstl.version>1.2</jstl.version>
+
 
     </properties>
 
@@ -26,6 +28,13 @@
 
 
     <dependencies>
+
+
+        <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+            <version>${jstl.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
