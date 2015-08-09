@@ -18,7 +18,7 @@
 
   <ul>
   <c:forEach var = "users" items = "${allUsers}">
-    <li>${users.get}</li>
+    <li>${users}</li>
   </c:forEach>
   </ul>
 
