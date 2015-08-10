@@ -8,138 +8,126 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- Basic template for the first part -->
-<jsp:include page="../blades/head.jsp" />
-<jsp:include page="../blades/header.jsp" />
+<jsp:include page="../blades/head.jsp"/>
+<jsp:include page="../blades/header.jsp"/>
+
+<div class="signUpBox">
+    <div class="title" id="signUpTitle">
+        <h2>Please input your information below.</h2>
+    </div>
+
+    <form:form id="SignUp" name="SignUp" method="POST" action="addVolunteer">
+        <table>
+            <tr>
+                <div class="form-group">
+                    <td><form:label path="firstName">First Name: </form:label></td>
+                    <td><form:input id="firstName" name="firstName" path="firstName"/></td>
+                </div>
+            </tr>
+            <tr>
+                <td><form:label path="lastName">Last Name: </form:label></td>
+                <td><form:input id="lastName" path="lastName"/></td>
+            </tr>
+            <tr>
+                <td><form:label path="dob">Date of Birth: </form:label></td>
+                <td><form:input id="dob" path="dob"/></td>
+            </tr>
 
 
-<h2>Please input your information below.</h2>
+                <%--Not inserting into the database yet--%>
+
+            <tr>
+                <td><form:label path="username">Username: </form:label></td>
+                <td><form:input id="username" name="username" path="username"/></td>
+            </tr>
 
 
-<form:form id="SignUp" name="SignUp" method="POST" action="addVolunteer">
+            <tr>
+                <td><form:label path="password">Password: </form:label></td>
+                <td><form:input id="password" name="password" path="password"/></td>
+            </tr>
+
+            <tr>
+                <td><form:label path="confirmPassword">Confirm Password: </form:label></td>
+                <td><form:input id="confirmPassword" name="confirmPassword" path="confirmPassword"/></td>
+            </tr>
 
 
-  <table>
-    <tr>
-      <div class = "form-group">
-        <td><form:label path="firstName">First Name:  </form:label></td>
-        <td><form:input id="firstName" name="firstName" path="firstName" /></td>
-      </div>
-    </tr>
-    <tr>
-      <td><form:label path="lastName">Last Name:  </form:label></td>
-      <td><form:input id="lastName" path="lastName" /></td>
-    </tr>
-    <tr>
-      <td><form:label path="dob">Date of Birth:  </form:label></td>
-      <td><form:input id="dob" path="dob" /></td>
-    </tr>
+            <tr>
+                <div class="checkbox">
+                    <label>
+                        <form:label path="adminStatus">Click for admin status</form:label>
+                        <form:checkbox path="adminStatus" id="adminStatus" name="adminStatus"/>
+                    </label>
+                </div>
+
+            </tr>
 
 
+            <tr>
+                <td colspan="2">
+                    <input class="btn btn-success" type="submit" value="Submit" onclick="return validateForm()"/>
+                </td>
+            </tr>
 
 
-    <%--Not inserting into the database yet--%>
-
-    <tr>
-      <td><form:label path="username">Username: </form:label> </td>
-      <td><form:input id = "username" name = "username" path="username" /> </td>
-    </tr>
+        </table>
 
 
-    <tr>
-      <td><form:label path="password">Password: </form:label> </td>
-      <td><form:input id = "password" name = "password" path="password" /> </td>
-    </tr>
+    </form:form>
 
-    <tr>
-      <td><form:label path="confirmPassword">Confirm Password: </form:label> </td>
-      <td><form:input id = "confirmPassword" name = "confirmPassword" path="confirmPassword" /> </td>
-    </tr>
-
-
-    <tr>
-      <div class = "checkbox">
-        <label>
-          <form:label path="adminStatus">Click for admin status</form:label>
-          <form:checkbox path="adminStatus" id = "adminStatus" name="adminStatus" />
-        </label>
-      </div>
-
-    </tr>
-
-
-    <tr>
-      <td colspan="2">
-        <input class = "btn btn-success" type="submit" value="Submit" onclick="return validateForm()"/>
-      </td>
-    </tr>
-
-
-  </table>
-
-
-
-</form:form>
-
-
+</div>
 
 <script type="text/javascript">
-  function validateForm()
-  {
-    if (validateFirstName() == false) {
-      return false;
+    function validateForm() {
+        if (validateFirstName() == false) {
+            return false;
+        }
+
+        if (validateLastName() == false) {
+            return false;
+        }
+
+        if (validateDoB() == false) {
+            return false;
+        }
     }
 
-    if (validateLastName() == false) {
-      return false;
+
+    function validateFirstName() {
+        var letterpattern = /^[a-zA-Z]+$/;
+        if (document.SignUp.firstName.value.match(letterpattern)) {
+            return true;
+        } else {
+            alert("First name must be all letters.");
+            document.forms["SignUp"]["firstName"].focus();
+            return false;
+        }
+
     }
-
-    if (validateDoB() == false) {
-      return false;
+    function validateLastName() {
+        var letterpattern = /^[a-zA-Z]+$/;
+        if (document.SignUp.lastName.value.match(letterpattern)) {
+            return true;
+        } else {
+            alert("Last name must be all letters.");
+            document.forms["SignUp"]["lastName"].focus();
+            return false;
+        }
     }
-  }
-
-
-
-
-
-  function validateFirstName()
-  {
-    var letterpattern = /^[a-zA-Z]+$/;
-    if (document.SignUp.firstName.value.match(letterpattern)) {
-      return true;
-    } else {
-      alert("First name must be all letters.");
-      document.forms["SignUp"]["firstName"].focus();
-      return false;
+    function validateDoB() {
+        //var datepattern = /^\d{1,2}\/\d{1,2}\/\d{4}$/;
+        var datepattern = /^\d{2}\/\d{2}\/\d{4}$/; // mm/dd/yyyy only
+        if (document.SignUp.dob.value.match(datepattern)) {
+            return true;
+        } else {
+            alert("Date of Birth must be in date format (ex. mm/dd/yyyy).");
+            document.forms["SignUp"]["dob"].focus();
+            return false;
+        }
     }
-
-  }
-  function validateLastName()
-  {
-    var letterpattern = /^[a-zA-Z]+$/;
-    if (document.SignUp.lastName.value.match(letterpattern)) {
-      return true;
-    } else {
-      alert("Last name must be all letters.");
-      document.forms["SignUp"]["lastName"].focus();
-      return false;
-    }
-  }
-  function validateDoB()
-  {
-    //var datepattern = /^\d{1,2}\/\d{1,2}\/\d{4}$/;
-    var datepattern = /^\d{2}\/\d{2}\/\d{4}$/; // mm/dd/yyyy only
-    if (document.SignUp.dob.value.match(datepattern)) {
-      return true;
-    } else {
-      alert("Date of Birth must be in date format (ex. mm/dd/yyyy).");
-      document.forms["SignUp"]["dob"].focus();
-      return false;
-    }
-  }
 </script>
 
 <!-- Basic template for the first part -->
-<jsp:include page="../blades/footer.jsp" />
-<jsp:include page="../blades/foot.jsp" />
-
+<jsp:include page="../blades/footer.jsp"/>
+<jsp:include page="../blades/foot.jsp"/>

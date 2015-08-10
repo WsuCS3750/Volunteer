@@ -1,15 +1,29 @@
+html{
+
+    border-bottom:solid 10px #004B8D;
+    border-left:solid 10px #FDB813;
+    border-right:solid 10px #B30838;
+}
 body {
-    /*background-color: black;*/
-    /*color: white;*/
-    margin: 0px auto;
+    margin: 50px auto 0px;
+    max-width:1200px;
+    
+}
+
+div.logoBox{
+    background-color:white;
+    position:relative;
+    z-index:99;
+    height:300px;
+    width:500px;
+    background: url(https://www.ccsutah.org/images/CCSLogo.png) no-repeat;
+    background-size:100%;
+    margin-bottom:-250px;
+    margin-left:-200px;
+}
+div.spacer{
     margin-top: 50px;
 }
-
-
-div.spacer{
-    margin-top: 100px;
-}
-
 
 header {
     margin-bottom: 100px;
@@ -17,4 +31,39 @@ header {
 
 h1 {
     margin-top: 100px;
+}
+
+div.signUpBox{
+    display:block;
+    height:450px;
+    width:500px;
+    margin:100px auto;
+}
+
+div.CheckBox{
+   padding-top:10px;
+   padding-bottom:10px;
+}
+
+div.loginBox{
+    display:block;
+    height:450px;
+    width:500px;
+    margin:100px auto;
+}
+
+div.jumbotron{
+    background-color:transparent;
+}
+
+div.aboutContainer{
+    margin:180px 0 0 90px;
+}
+
+div.contactContainer{
+     margin:180px 0 0 90px;
+}
+
+div.logoutContainer{
+    margin:180px 0 0 90px;
 }

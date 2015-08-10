@@ -18,7 +18,7 @@
 <jsp:include page="../blades/head.jsp" />
 <jsp:include page="../blades/header.jsp" />
 
-
+<div class="loginBox">
 <h1>Login to CCS Volunteer Database</h1>
 
   <h1>
@@ -106,7 +106,7 @@
 </form>
 
 
-
+</div>
 
 
 
