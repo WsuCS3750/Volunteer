@@ -66,9 +66,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         LogoutHandler logoutHandler = new CookieClearingLogoutHandler("all");
 
+
+        // Check out has IP address for this to validate which are being run locally or not.
+
         http
                 .authorizeRequests()
                 .antMatchers("/resources/**").permitAll()
+                .antMatchers("/theme/**").permitAll()
                 .antMatchers("/").permitAll()
                 .antMatchers("/showLogout").permitAll()
                 .antMatchers("/signup").permitAll()
@@ -84,6 +88,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .logout()
 
+                .logoutSuccessUrl("/")
 //                        .logoutSuccessUrl("/public/")
 
 //                .logoutUrl("j_spring_security_logout")
