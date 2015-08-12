@@ -15,6 +15,5 @@ CREATE TABLE UserTable
   adminStatus VARCHAR(3) NOT NULL default 'n',
   joinDate SMALLDATETIME DEFAULT getdate()  NOT NULL,
   modifiedOn TIMESTAMP NOT NULL,
-
 );
 

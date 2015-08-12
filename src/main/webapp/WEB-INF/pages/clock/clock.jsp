@@ -1,28 +1,35 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Jake
-  Date: 8/6/2015
-  Time: 9:20 PM
+  Date: 8/3/2015
+  Time: 10:32 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!-- Basic template for the header -->
 <jsp:include page="../blades/head.jsp" />
 <jsp:include page="../blades/header.jsp" />
 
+<br>
 
 
-  <h1>Admin page</h1>
+
+<!-- Not working properly, basic setup though -->
+
+<a href="<c:url value="/clock/pickuser"/>" class="btn btn-primary">Clock in</a>
+
+<a href="<c:url value="/clock/pickuser"/>" class="btn btn-primary">Clock out</a>
+
+<a href = "<c:url value="/admin/admin"/>">Admin</a>
 
 
-  <ul>
 
-    <c:forEach var = "users" items = "${allUsers}">
-    <li>${users}</li>
-  </c:forEach>
 
-  </ul>
+
+
 
 
 

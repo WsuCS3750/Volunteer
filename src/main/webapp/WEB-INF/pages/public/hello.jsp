@@ -31,7 +31,14 @@
             <h2>Host: ${pageContext.request.remoteHost}</h2>
 
             <h2>Remote port: ${pageContext.request.remotePort}</h2>
+
+
+
+
+
         </div>
+
+
 
 
         <%--<a class="btn btn-primary btn-success" href="<c:url value="j_spring_security_logout" />">LogOut</a>--%>

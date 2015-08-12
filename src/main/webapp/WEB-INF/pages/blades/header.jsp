@@ -89,6 +89,7 @@
           <li><a href = "<c:url value="/public/signup" />">Signup</a></li>
 
 
+          <li><a href = "<c:url value="/clock/clock" />">Clock Page</a></li>
 
         <%--Login / Logoff --%>
         <li>

@@ -73,6 +73,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/resources/**").permitAll()
                 .antMatchers("/theme/**").permitAll()
+                .antMatchers("/clock/**").permitAll()               // disable this if you are not at ccs
                 .antMatchers("/").permitAll()
                 .antMatchers("/showLogout").permitAll()
                 .antMatchers("/signup").permitAll()
