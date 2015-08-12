@@ -11,7 +11,9 @@ import org.springframework.web.servlet.ModelAndView;
  *
  *
  *
+ * This is used for the onsite terminal for logging in and out
  *
+ * Will need more functionality for login logout remotely.
  *
  */
 
@@ -19,16 +21,19 @@ import org.springframework.web.servlet.ModelAndView;
 public class TimeController {
 
 
+    /**
+     * Shows the clock in/out page of the website.
+     * @param modelMap
+     * @return
+     */
 
     @RequestMapping(value = "/clock", method = RequestMethod.GET)
     public ModelAndView clock(ModelMap modelMap) {
 
 
-
-
-
         return new ModelAndView("/clock/clock");
     }
+
 
 
 

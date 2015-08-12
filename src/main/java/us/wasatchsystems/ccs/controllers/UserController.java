@@ -17,7 +17,8 @@ import java.util.*;
  * Created by Jake on 7/12/2015.
  *
  *
- *
+ * Used to handle the functionality of the user
+ * login, logout, success, failure, and create new user
  */
 
 
@@ -28,6 +29,15 @@ public class UserController {
     private static final Logger log = LogManager.getLogger(UserController.class);
 
 
+    Map<Long, String> volunteerMap = new HashMap<Long, String>();
+
+
+
+    /**
+     * Shows the signup page
+     * @return
+     */
+
     @RequestMapping(value = "/public/signup", method = RequestMethod.GET)
     public ModelAndView volunteer() {
 
@@ -35,9 +45,13 @@ public class UserController {
     }
 
 
-
-    Map<Long, String> volunteerMap = new HashMap<Long, String>();
-
+    /**
+     * Handles the signup, putting the data into the database.
+     *
+     * @param user contains all the necessary info for a user
+     * @param model
+     * @return Redirect to the result page showing the volunteers info
+     */
     @RequestMapping(value = "/public/addVolunteer", method = RequestMethod.POST)
     public String addVolunteer(@ModelAttribute("SpringWeb")User user,
                              ModelMap model) {

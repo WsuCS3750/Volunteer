@@ -35,6 +35,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private Logger log = LogManager.getLogger(SecurityConfig.class);
 
+
+    /**
+     * Sets the database as the default authentication for the website
+     * @param auth sets the way the authentication is handled.
+     * @throws Exception
+     */
+
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 
@@ -60,6 +67,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     }
 
+
+    /**
+     * Configures the specifics of logging into the volunteer system
+     *
+     * and matchers used for allowing and denying access to the website.
+     *
+     *
+     * @param http
+     * @throws Exception
+     */
 
 
     protected void configure(HttpSecurity http) throws Exception {

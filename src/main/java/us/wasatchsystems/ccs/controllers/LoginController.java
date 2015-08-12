@@ -27,17 +27,31 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/")
 public class LoginController {
 
+    // Logger for the website, logged to the console and to the appender
     private Logger log = LogManager.getLogger(LoginController.class);
 
 
+    /**
+     * The page for loggin into the website
+     * @param modelMap Attributes passed in to the webpage.
+     * @return the path to the page
+     */
 
     @RequestMapping(value = "/public/login", method = RequestMethod.GET)
     public ModelAndView login(ModelMap modelMap) {
+
+
+
         return new ModelAndView("/public/loginPage", "command", new Login());
     }
 
 
-
+    /**
+     * Shows the login error page, should show why the error occurred as apposed to inventory
+     * system that just showed an error when something went wrong with no description
+     * @param modelMap that holds all the attributes
+     * @return
+     */
 
     @RequestMapping(value = "/public/loginError", method = RequestMethod.GET)
     public String loginError(ModelMap modelMap) {
@@ -63,6 +77,12 @@ public class LoginController {
 //    }
 
 
+    /**
+     * Handles the logout of the site explicitly
+     * @param modelMap
+     * @return
+     */
+
     @RequestMapping(value = "/public/logout", method = RequestMethod.GET)
     public String doLogout(ModelMap modelMap) {
         // do logout
@@ -76,18 +96,21 @@ public class LoginController {
     }
 
 
-
-
+    /**
+     * Shows the logout of the page
+     * @param modelAndView
+     * @return
+     */
 
     @RequestMapping(value = "/showLogout", method = RequestMethod.GET)
     public String showContact(ModelAndView modelAndView) {
-        return "admin/admin";
+        return "admin/admin";           // change this.
     }
 
 
-
-
-
+    /**
+     * Junk
+     */
 
     public void manualLogout() {
         SecurityContextHolder.getContext().setAuthentication(null);

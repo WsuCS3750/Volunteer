@@ -27,6 +27,10 @@ public class UserDataSource {
     private static final Logger log = LogManager.getLogger(UserDataSource.class);
 
 
+    /**
+     * Standard format for date and time may come in handy to have if you need
+     * to use the timestamp from a database.
+     */
     private static final DateFormat iso8601Format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'");
 
     //jdbc:sqlserver://[serverName[\instanceName][:portNumber]][;property=value[;property=value]]
@@ -65,7 +69,11 @@ public class UserDataSource {
 //    );
 
 
-    // todo
+    /**
+     * Shows all the users in the database
+     * @return List of all users in the database.
+     */
+
     public static List<User> queryAll() {
 
         try {
@@ -114,12 +122,7 @@ public class UserDataSource {
 
 
     /**
-     VolunteerID			smallint		NOT NULL	IDENTITY(1, 1),
-     VolunteerFirstName	varchar(25)		NOT NULL,
-     VolunteerLastName	varchar(30)		NOT NULL,
-     VolunteerDoB		smalldatetime	NOT NULL
-
-
+     * Adds a user to the database, same as signing up
      * @param user to insert
      */
 
@@ -127,10 +130,7 @@ public class UserDataSource {
     public static void addVolunteer(User user) {
 
         try {
-
             Connection connection = LoadDatabase.getConnection();
-
-
             if (connection == null) {
                 return;
             }

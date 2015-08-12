@@ -13,9 +13,15 @@ import java.util.Properties;
  *
  *
  *
- * Used to load the properties from the file so they can be use throughout the application, prevents hardcoding of the
- * parameters.
+ * Used to load the properties from the file so they can be use throughout the application,
+ * prevents having to hardcode the parameters
  *
+ *
+ *
+ * NOTE: This is very time consuming reading and writing from the file,
+ * you may want to statically load the data if it is not loaded
+ *
+ * consider using a static hash map to match the properties.
  *
  */
 
@@ -42,7 +48,6 @@ public class PropertyLoader {
      */
 
     public PropertyLoader() {
-
         ClassPathResource propertiesResource = new ClassPathResource("application.properties");
         try {
 

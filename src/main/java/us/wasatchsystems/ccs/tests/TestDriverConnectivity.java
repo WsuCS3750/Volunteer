@@ -6,6 +6,17 @@ import org.apache.log4j.Logger;
 
 import java.sql.DriverManager;
 
+
+/**
+ * Tests weather or not the driver is properly configured or not
+ *
+ *
+ * Might want to move this to a junit test and have it called on compile
+ * to let you know if you are not connected to the database before the application
+ * is created.
+ *
+ */
+
 public class TestDriverConnectivity {
 
 

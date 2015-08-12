@@ -4,7 +4,7 @@
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{1} - %msg%n"/>
         </Console>
-        <RollingFile name="Volunteer DB" fileName="./logs/application-volunteer.log"
+        <RollingFile name="VolunteerDBAppender" fileName="./logs/application-volunteer.log"
                      filePattern="./logs/application-volunteerdb-%d{MM-dd-yyyy}-%i.log">
             <PatternLayout>
                 <pattern>%d{HH:mm:ss.SSS} [%t] %X{id} %X{username} %-5level %c{1} %l: %msg%n</pattern>
@@ -18,7 +18,7 @@
     <loggers>
         <root level="INFO">
             <appender-ref ref="Console" />
-            <!--<appender-ref ref="VolunteerDBAppender" />-->
+            <appender-ref ref="VolunteerDBAppender" />
         </root>
         <logger name="us.wasatchsystems.ccs" level="INFO" />
 

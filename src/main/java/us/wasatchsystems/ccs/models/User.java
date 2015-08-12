@@ -8,6 +8,8 @@ import java.text.SimpleDateFormat;
  * Created by Jake on 7/12/2015.
  *
  *
+ *
+ * Used when a user signs up for the volunteer service.
  */
 
 

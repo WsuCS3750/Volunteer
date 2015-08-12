@@ -17,7 +17,12 @@ import java.sql.*;
  * Created by Jake on 7/16/2015.
  *
  *
+ * Loads the connection, note keep the connection static so multiple instances are not opened up
  *
+ *  May possibly need to syncronize the connection.
+ *
+ *
+ *  @See hibernate framework
  */
 
 public class LoadDatabase {
@@ -86,6 +91,14 @@ public class LoadDatabase {
     }
 
 
+    /**
+     * Gets the  data source for the database, required for using springs
+     * integrated security.
+     *
+     * @return SQLServerDataSource
+     *
+     */
+
     public static SQLServerDataSource getDataSource() {
         try {
 
@@ -111,7 +124,6 @@ public class LoadDatabase {
             // Use windows based authentication.
             ds.setIntegratedSecurity(false);
 
-
             // Load the properties and get it to load
             ds.setServerName(propertyLoader.getServerName());
             ds.setDatabaseName(propertyLoader.getDatabaseName());
@@ -119,10 +131,8 @@ public class LoadDatabase {
             ds.setUser(propertyLoader.getUserName());
             ds.setPassword(propertyLoader.getUserPassword());
 
-
             // Connect to the database.
             con = ds.getConnection();
-
 
             log.info("You successfully connected to the database");
             return ds;
@@ -172,8 +182,9 @@ public class LoadDatabase {
 
     public static void main(String[] args) throws Exception {
 
-        Connection connection = LoadDatabase.getConnection();
+//        Connection connection = LoadDatabase.getConnection();
 
+        LoadDatabase.testLogger();
 //        LoadDatabase.testDriver();
 
 

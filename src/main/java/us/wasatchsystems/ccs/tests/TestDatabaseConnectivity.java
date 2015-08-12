@@ -5,6 +5,13 @@ import us.wasatchsystems.ccs.datasource.PropertyLoader;
 
 import java.sql.*;
 
+
+/**
+ * This class is used to test weather your database is properly configured or not
+ *
+ *
+ */
+
 public class TestDatabaseConnectivity {
 
 

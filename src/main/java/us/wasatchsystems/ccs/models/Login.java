@@ -2,6 +2,13 @@ package us.wasatchsystems.ccs.models;
 
 /**
  * Created by Jake on 8/3/2015.
+ *
+ *
+ *
+ * This class is used when  the user enters in their login credentials.
+ *
+ *
+ *
  */
 public class Login {
 
