@@ -48,7 +48,7 @@ local.properties
 .mtj.tmp/
 
 # Package Files #
-*.jar
+
 *.war
 *.ear
 
@@ -119,4 +119,4 @@ lib/sqlserver_jdbc/*
 
 
 target
-lib/sqljdbc_4.2
+!lib/sqljdbc_4.2
