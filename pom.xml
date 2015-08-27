@@ -1,23 +1,49 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.springapp</groupId>
+    <groupId>us.wasatchsystems.ccs</groupId>
     <artifactId>VolunteerDB</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>VolunteerDB</name>
+    <url>http://maven.apache.org</url>
 
     <properties>
         <spring.version>4.1.1.RELEASE</spring.version>
+        <log4j.version>2.0.2</log4j.version>
+        <jdbc.groupId>com.microsoft.sqlserver</jdbc.groupId>
+        <jdbc.artifactId>sqljdbc4</jdbc.artifactId>
+        <jdbc.version>4.0</jdbc.version>
+        <jstl.version>1.2</jstl.version>
+
+        <library.directory>lib/</library.directory>
+
     </properties>
 
 
-
+    <!-- Multi module projects can be problem some especially with web applications -->
     <modules>
 
     </modules>
 
+
+
     <dependencies>
+
+
+        <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+            <version>${jstl.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>sqljdbc4</artifactId>
+            <version>4.0</version>
+        </dependency>
+
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
@@ -62,10 +88,221 @@
             <version>4.11</version>
             <scope>test</scope>
         </dependency>
+
+
+
+
+        <!-- JDBC from spring -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+
+
+        <!-- Mysql Connector, probably not needed -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.36</version>
+        </dependency>
+
+
+
+
+
+
+        <!-- Log4j Logger -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-jcl</artifactId>
+            <version>${log4j.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-taglib</artifactId>
+            <version>${log4j.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>${log4j.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+            <version>2.4.1</version>
+        </dependency>
+
+
+
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-dbcp2</artifactId>
+            <version>2.1</version>
+        </dependency>
+
+
+
+
+
+        <!-- Alternate JDBC Driver -->
+
+        <dependency>
+            <groupId>net.sourceforge.jtds</groupId>
+            <artifactId>jtds</artifactId>
+            <version>1.3.1</version>
+        </dependency>
+
+
+
+
+        <!-- Bootstrap dependencies -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>webjars-locator</artifactId>
+            <version>0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
+            <version>2.0.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
+
+
+
+        <!-- Spring security -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>4.0.2.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>4.0.2.RELEASE</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf-spring3</artifactId>
+            <version>2.1.4.RELEASE</version>
+        </dependency>
+
+
+
+
+
+        <!-- 3rd party jars can be added like this -->
+
+
+        <!-- Adding it like this will enable it to be compiled into the war file -->
+        <dependency>
+            <groupId>us.wasatchsystems.ccs</groupId>
+            <artifactId>sql-server-jdbc</artifactId>
+            <version>4.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/lib/sqljdbc41.jar</systemPath>
+        </dependency>
+
+
+
     </dependencies>
 
     <build>
         <finalName>VolunteerDB</finalName>
+
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>log4j.xml</include>
+                    <include>log4j2.xml</include>
+                    <include>application.properties</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <targetPath>target</targetPath>
+                <includes>
+                    <include>log4j2.xml</include>
+                    <include>application.properties</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>lib</directory>
+                <targetPath>target/lib</targetPath>
+                <includes>
+                    <include>lib/*</include>
+                </includes>
+            </resource>
+        </resources>
+
+
+
+        <testSourceDirectory>src/test/java</testSourceDirectory>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+            </testResource>
+        </testResources>
+
+
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -82,6 +319,14 @@
                     </includes>
                 </configuration>
             </plugin>
+
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+
         </plugins>
     </build>
 </project>

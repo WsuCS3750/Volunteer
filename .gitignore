@@ -48,7 +48,7 @@ local.properties
 .mtj.tmp/
 
 # Package Files #
-*.jar
+
 *.war
 *.ear
 
@@ -114,7 +114,9 @@ nbdist/
 nbactions.xml
 nb-configuration.xml
 .nb-gradle/
+lib/sqlserver_jdbc/*
 
 
 
 target
+!lib/sqljdbc_4.2

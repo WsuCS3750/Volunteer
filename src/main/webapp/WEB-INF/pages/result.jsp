@@ -6,32 +6,58 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
 
 
-<h2>Submitted Student Information</h2>
+<!-- Basic template for the first part -->
+<jsp:include page="blades/head.jsp" />
+<jsp:include page="blades/header.jsp" />
+
+
+
+
+<h2>Thank you for submitting your information.</h2>
+
+
 <table>
 
 
   <!-- use for each loop here when hooked up to the database -->
   <tr>
-    <td>Name</td>
+    <td>Name:  </td>
     <td>${firstName}</td>
   </tr>
   <tr>
-    <td>Age</td>
+    <td>Age:  </td>
     <td>${lastName}</td>
   </tr>
   <tr>
-    <td>ID</td>
+    <td>DoB:  </td>
     <td>${dob}</td>
   </tr>
 </table>
 
 
-</body>
-</html>
+
+<%--<h1>Volunteers</h1>--%>
+
+<%--<table id="volunteerTable">--%>
+  <%----%>
+  <%--<script type = "text/javascript">--%>
+    <%--var users = new Array();--%>
+  <%--</script>--%>
+  <%--<c:forEach items="${users}" var="listVar" varStatus="n">--%>
+    <%--<tr>--%>
+      <%--<td><c:out value="${listVar}" /></td>--%>
+    <%--</tr>--%>
+  <%--</c:forEach>--%>
+
+<%--</table>--%>
+
+
+
+
+
+<!-- Basic template for the first part -->
+<jsp:include page="blades/footer.jsp" />
+<jsp:include page="blades/foot.jsp" />
+
