@@ -16,6 +16,7 @@
         <jdbc.version>4.0</jdbc.version>
         <jstl.version>1.2</jstl.version>
 
+        <library.directory>lib/</library.directory>
 
     </properties>
 
@@ -242,6 +243,21 @@
             <version>2.1.4.RELEASE</version>
         </dependency>
 
+
+
+
+
+        <!-- 3rd party jars can be added like this -->
+
+
+        <!-- Adding it like this will enable it to be compiled into the war file -->
+        <dependency>
+            <groupId>us.wasatchsystems.ccs</groupId>
+            <artifactId>sql-server-jdbc</artifactId>
+            <version>4.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/lib/sqljdbc41.jar</systemPath>
+        </dependency>
 
 
 
